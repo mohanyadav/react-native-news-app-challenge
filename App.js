@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import SliderHeroCard from "./components/SliderHeroCard";
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <StatusBar style="auto" />
+
       <View style={styles.topContainer}>
         <View style={styles.greetingSection}>
           <Text style={styles.greetingTitle}>Good morning James,</Text>
@@ -17,17 +20,27 @@ export default function App() {
         <View style={styles.profileSection}>
           <Image
             style={styles.profile}
-            source={{
-              uri:
-                "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-            }}
+            source={require("./assets/profile.png")}
             width="60"
             height="60"
           ></Image>
         </View>
       </View>
 
-      <StatusBar style="auto" />
+      <ScrollView horizontal={true} style={styles.sliderHeroContainer}>
+        <SliderHeroCard
+          image="https://images.unsplash.com/photo-1579781403337-de692320718a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=940&q=80"
+          title="110 million Americans fully vaccinated so far"
+          time="45 minutes"
+          publisher="USA TODAY"
+        />
+        <SliderHeroCard
+          image="https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg"
+          title="NASA’s Perseverance Captures Video, Audio of Fourth Ingenuity Flight"
+          time="45 minutes"
+          publisher="NASA"
+        />
+      </ScrollView>
     </View>
   );
 }
@@ -37,23 +50,27 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#252529",
     color: "#fff",
-    padding: 20,
+    // padding: 20,
   },
   topContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 20,
+    padding: 20,
   },
   greetingSection: {
     flex: 1,
   },
   profileSection: {},
+  sliderHeroContainer: {
+    flexDirection: "row",
+  },
   profile: {
     width: 50,
     height: 50,
     borderColor: "#fff",
-    borderWidth: 2,
+    borderWidth: 1.4,
     borderRadius: 30,
   },
   greetingTitle: {

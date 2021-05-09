@@ -3,12 +3,14 @@ import React from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import SliderHeroCard from "./components/SliderHeroCard";
+import Hashtag from "./components/Hashtag";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
 
+      {/* Top Container Start */}
       <View style={styles.topContainer}>
         <View style={styles.greetingSection}>
           <Text style={styles.greetingTitle}>Good morning James,</Text>
@@ -26,21 +28,40 @@ export default function App() {
           ></Image>
         </View>
       </View>
+      {/* Top Container End */}
 
-      <ScrollView horizontal={true} style={styles.sliderHeroContainer}>
-        <SliderHeroCard
-          image="https://images.unsplash.com/photo-1579781403337-de692320718a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=940&q=80"
-          title="110 million Americans fully vaccinated so far"
-          time="45 minutes"
-          publisher="USA TODAY"
-        />
-        <SliderHeroCard
-          image="https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg"
-          title="NASA’s Perseverance Captures Video, Audio of Fourth Ingenuity Flight"
-          time="45 minutes"
-          publisher="NASA"
-        />
-      </ScrollView>
+      {/* Hero Slider Start */}
+      <View style={styles.sliderHeroContainer}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <SliderHeroCard
+            image="https://images.unsplash.com/photo-1579781403337-de692320718a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=940&q=80"
+            title="110 million Americans fully vaccinated so far"
+            time="45 minutes"
+            publisher="USA TODAY"
+          />
+          <SliderHeroCard
+            image="https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg"
+            title="NASA’s Perseverance Captures Video, Audio of Fourth Ingenuity Flight"
+            time="45 minutes"
+            publisher="NASA"
+          />
+        </ScrollView>
+      </View>
+
+      {/* Hero Slider End */}
+
+      {/* Hashtag Start */}
+      <View style={styles.hashtagContainer}>
+        <Text style={styles.hashtagTitle}>Trending Newstag</Text>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <Hashtag tag="covid19" />
+          <Hashtag tag="ipl" />
+          <Hashtag tag="iMac" />
+          <Hashtag tag="basecamp" />
+          <Hashtag tag="billgates" />
+        </ScrollView>
+      </View>
+      {/* Hashtag End */}
     </View>
   );
 }
@@ -65,6 +86,8 @@ const styles = StyleSheet.create({
   profileSection: {},
   sliderHeroContainer: {
     flexDirection: "row",
+    padding: 0,
+    marginBottom: 20,
   },
   profile: {
     width: 50,
@@ -82,5 +105,13 @@ const styles = StyleSheet.create({
     color: Colors.white,
     opacity: 0.53,
     fontSize: 18,
+  },
+  hashtagContainer: {},
+  hashtagTitle: {
+    marginBottom: 10,
+    paddingHorizontal: 20,
+    color: Colors.white,
+    fontWeight: "700",
+    fontSize: 20,
   },
 });

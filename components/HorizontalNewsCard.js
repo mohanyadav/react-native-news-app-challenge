@@ -9,9 +9,20 @@ export default class HorizontalNewsCard extends Component {
   }
 
   render() {
-    const { image, title, time, publisher } = this.props;
+    const { image, title, time, publisher, content, navigation } = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          navigation.push("NewsDetail", {
+            image: image,
+            title: title,
+            time: time,
+            publisher: publisher,
+            content: content,
+          });
+        }}
+      >
         <View style={styles.imageContainer}>
           <Image
             source={{

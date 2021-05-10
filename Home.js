@@ -202,6 +202,8 @@ export default class Home extends Component {
           image={this.state.data.articles[i].image}
           time={time.toString()}
           publisher={this.state.data.articles[i].source.name}
+          content={this.state.data.articles[i].content}
+          navigation={this.props.navigation}
         />
       );
     }
@@ -223,6 +225,8 @@ export default class Home extends Component {
           title={this.state.data.articles[i].title}
           time={time.toString()}
           publisher={this.state.data.articles[i].source.name}
+          content={this.state.data.articles[i].content}
+          navigation={this.props.navigation}
         />
       );
     }

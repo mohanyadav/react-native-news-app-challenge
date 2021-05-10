@@ -16,10 +16,22 @@ export default class SliderHeroCard extends Component {
   }
 
   render() {
-    const { title, time, publisher, image } = this.props;
+    const { title, time, publisher, image, content, navigation } = this.props;
 
+    // console.log(this.props);
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          navigation.push("NewsDetail", {
+            image: image,
+            title: title,
+            time: time,
+            publisher: publisher,
+            content: content,
+          });
+        }}
+      >
         <ImageBackground
           style={styles.backgroundImage}
           imageStyle={{ borderRadius: 20 }}

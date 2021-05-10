@@ -19,6 +19,8 @@ export default class NewsDetail extends Component {
   }
 
   render() {
+    const { title, time, image, content, publisher } = this.props.route.params;
+
     return (
       <View style={styles.container}>
         <StatusBar style="light" />
@@ -27,7 +29,7 @@ export default class NewsDetail extends Component {
         <View style={styles.topContainer}>
           <ImageBackground
             source={{
-              uri: "https://scx2.b-cdn.net/gfx/news/hires/2020/1-virus.jpg",
+              uri: image,
             }}
             width="100"
             height="100"
@@ -57,11 +59,9 @@ export default class NewsDetail extends Component {
               </TouchableOpacity> */}
             </View>
             <View style={styles.contentContainer}>
-              <Text style={styles.title}>
-                110 million Americans fully vaccinated so far
-              </Text>
+              <Text style={styles.title}>{title}</Text>
               <Text style={styles.subtitle}>
-                45 minutes | <Text>USA Today</Text>
+                {time} | <Text>{publisher}</Text>
               </Text>
             </View>
           </ImageBackground>
@@ -82,10 +82,8 @@ export default class NewsDetail extends Component {
               />
             </View>
             <View style={styles.publisherContent}>
-              <Text style={styles.publisherTitle}>USA Today</Text>
-              <Text style={styles.publisherTime}>
-                08 May 2021, 08:21 AM IST
-              </Text>
+              <Text style={styles.publisherTitle}>{publisher}</Text>
+              <Text style={styles.publisherTime}>{time}</Text>
             </View>
           </View>
           <View style={styles.shareIconContainer}>
@@ -101,23 +99,7 @@ export default class NewsDetail extends Component {
 
         {/* Content Start */}
         <ScrollView>
-          <Text style={styles.content}>
-            Officials with President Joe Biden's coronavirus task force say 110
-            million Americans will be fully vaccinated by the end of Friday,
-            with a total of 150 million vaccinated through the first shot. "We
-            are far ahead of where anyone thought we would be in our war against
-            the virus," said Jeffrey Zients, the White House coronavirus task
-            force director. {"\n\n"}That information, coming from an
-            official-sounding group, makes it seem like there’s little benefit —
-            and potentially some harm — to getting vaccinated against COVID-19.
-            {"\n\n"}
-            The vaccine produces many trillions of particles of spike proteins
-            in the recipient. Patients who are vaccinated can shed some of these
-            (spike protein) particles to close contacts,” the press release
-            says. “The particles have the ability to create inflammation and
-            disease in these contacts. In other words, the spike proteins are
-            pathogenic (‘disease causing’) just like the full virus
-          </Text>
+          <Text style={styles.content}>{content}</Text>
         </ScrollView>
         {/* Content End */}
       </View>

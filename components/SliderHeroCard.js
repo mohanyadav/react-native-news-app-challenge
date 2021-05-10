@@ -34,7 +34,9 @@ export default class SliderHeroCard extends Component {
             colors={["rgba(0,0,0, 0.9)", "transparent"]}
           ></LinearGradient>
           <View style={styles.contentContainer}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title} numberOfLines={3}>
+              {title}
+            </Text>
             <Text style={styles.subtitle}>
               {time} | <Text>{publisher}</Text>
             </Text>

@@ -23,7 +23,9 @@ export default class HorizontalNewsCard extends Component {
           />
         </View>
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title} numberOfLines={2}>
+            {title}
+          </Text>
           <Text style={styles.subtitle}>
             {time} | <Text>{publisher}</Text>
           </Text>

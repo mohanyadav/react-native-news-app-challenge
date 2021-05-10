@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
-import { LinearGradient, LinerGradient } from "expo-linear-gradient";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default class SliderHeroCard extends Component {
@@ -13,7 +19,7 @@ export default class SliderHeroCard extends Component {
     const { title, time, publisher, image } = this.props;
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container}>
         <ImageBackground
           style={styles.backgroundImage}
           imageStyle={{ borderRadius: 20 }}
@@ -34,7 +40,7 @@ export default class SliderHeroCard extends Component {
             </Text>
           </View>
         </ImageBackground>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

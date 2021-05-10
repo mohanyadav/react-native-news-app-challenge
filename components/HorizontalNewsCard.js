@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default class HorizontalNewsCard extends Component {
@@ -11,7 +11,7 @@ export default class HorizontalNewsCard extends Component {
   render() {
     const { image, title, time, publisher } = this.props;
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container}>
         <View style={styles.imageContainer}>
           <Image
             source={{
@@ -28,7 +28,7 @@ export default class HorizontalNewsCard extends Component {
             {time} | <Text>{publisher}</Text>
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

@@ -19,7 +19,8 @@ export default class NewsDetail extends Component {
   }
 
   render() {
-    const { title, time, image, content, publisher } = this.props.route.params;
+    const { title, time, image, content, publisher, url } =
+      this.props.route.params;
 
     return (
       <View style={styles.container}>
@@ -74,7 +75,7 @@ export default class NewsDetail extends Component {
             <View style={styles.publisherProfileContainer}>
               <Image
                 source={{
-                  uri: "https://cdn.freelogovectors.net/wp-content/uploads/2020/11/usa-today-logo.png",
+                  uri: `https://logo.clearbit.com/${url}`,
                 }}
                 width="100"
                 height="100"

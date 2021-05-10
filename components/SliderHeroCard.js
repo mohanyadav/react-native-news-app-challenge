@@ -16,7 +16,8 @@ export default class SliderHeroCard extends Component {
   }
 
   render() {
-    const { title, time, publisher, image, content, navigation } = this.props;
+    const { title, time, publisher, image, content, url, navigation } =
+      this.props;
 
     // console.log(this.props);
     return (
@@ -29,6 +30,7 @@ export default class SliderHeroCard extends Component {
             time: time,
             publisher: publisher,
             content: content,
+            url: url,
           });
         }}
       >

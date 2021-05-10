@@ -9,7 +9,8 @@ export default class HorizontalNewsCard extends Component {
   }
 
   render() {
-    const { image, title, time, publisher, content, navigation } = this.props;
+    const { image, title, time, publisher, content, url, navigation } =
+      this.props;
     return (
       <TouchableOpacity
         style={styles.container}
@@ -20,6 +21,7 @@ export default class HorizontalNewsCard extends Component {
             time: time,
             publisher: publisher,
             content: content,
+            url: url,
           });
         }}
       >

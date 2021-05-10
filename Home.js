@@ -203,6 +203,7 @@ export default class Home extends Component {
           time={time.toString()}
           publisher={this.state.data.articles[i].source.name}
           content={this.state.data.articles[i].content}
+          url={this.state.data.articles[i].source.url}
           navigation={this.props.navigation}
         />
       );
@@ -226,6 +227,7 @@ export default class Home extends Component {
           time={time.toString()}
           publisher={this.state.data.articles[i].source.name}
           content={this.state.data.articles[i].content}
+          url={this.state.data.articles[i].source.url}
           navigation={this.props.navigation}
         />
       );

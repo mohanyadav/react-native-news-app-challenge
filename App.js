@@ -54,7 +54,6 @@ export default class App extends Component {
 
   render() {
     const { fontsLoaded } = this.state;
-    console.log(fontsLoaded);
 
     // Check if font is loaded
     if (!fontsLoaded) {

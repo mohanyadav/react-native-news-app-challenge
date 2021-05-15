@@ -205,6 +205,7 @@ export default class Home extends Component {
           content={this.state.data.articles[i].content}
           url={this.state.data.articles[i].source.url}
           navigation={this.props.navigation}
+          key={i}
         />
       );
     }
@@ -229,6 +230,7 @@ export default class Home extends Component {
           content={this.state.data.articles[i].content}
           url={this.state.data.articles[i].source.url}
           navigation={this.props.navigation}
+          key={i}
         />
       );
     }

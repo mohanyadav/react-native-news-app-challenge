@@ -9,10 +9,13 @@ export default class Hashtag extends Component {
   }
 
   render() {
-    const { tag } = this.props;
+    const { tag, navigation } = this.props;
 
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => navigation.push("HashtagDetail")}
+      >
         <Text style={styles.text}> #{tag} </Text>
       </TouchableOpacity>
     );

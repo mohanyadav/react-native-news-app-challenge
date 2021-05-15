@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./Home";
 import NewsDetailScreen from "./NewsDetail";
+import HashtagDetailScreen from "./HashtagDetail";
 
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -64,6 +65,10 @@ export default class App extends Component {
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="NewsDetail" component={NewsDetailScreen} />
+            <Stack.Screen
+              name="HashtagDetail"
+              component={HashtagDetailScreen}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       );

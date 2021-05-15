@@ -1,9 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import SliderHeroCard from "./components/SliderHeroCard";
-import Hashtag from "./components/Hashtag";
 import HorizontalNewsCard from "./components/HorizontalNewsCard";
 
 const months = [
@@ -21,14 +26,14 @@ const months = [
   "Dec",
 ];
 
-export default class Home extends Component {
+export default class HashtagDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {
-        totalArticles: 126285,
         articles: [
           {
+            id: 1,
             title:
               "Ford names new F-150 electric pickup Lightning with plans to reveal it May 19",
             description:
@@ -45,6 +50,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 2,
             title: "Jerusalem violence leads to Hamas rockets on Israel",
             description:
               "Palestinian militants in the Gaza Strip fired rockets toward the Jerusalem area and southern Israel on Monday",
@@ -60,6 +66,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 3,
             title: "Islamabad sets up five new vaccination centers",
             description:
               "In order to offset the resurgence of the global pandemic into its third wave, Islamabad, on Monday announced the setting up of five new vaccination centers within the",
@@ -75,6 +82,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 4,
             title:
               "In Kabul visit, Gen Bajwa reiterates support for Afghan peace process as violence surges",
             description:
@@ -91,6 +99,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 5,
             title:
               "In Kabul visit, Gen Bajwa reiterates support for Afghan peace process as violence surges",
             description:
@@ -107,6 +116,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 6,
             title: "Gang member jailed for laundering over €750,000",
             description:
               "A criminal gang member has been jailed today for laundering over €750,000 of organised crime money using 27 bank accounts and five fake companies.",
@@ -121,6 +131,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 7,
             title: "Denver Broncos think they can get QB Aaron Rodgers",
             description:
               'The Packers have said they won\'t trade QB Aaron Rodgers, but the Broncos still believe there is a "real possibility" of getting something done for the MVP.',
@@ -136,6 +147,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 8,
             title:
               "PM Imran visits PIMS, enquires about facilities, COVID cases",
             description:
@@ -152,6 +164,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 9,
             title:
               "UK economy to suffer £700bn output loss due to Covid and Brexit, thinktank warns",
             description:
@@ -168,6 +181,7 @@ export default class Home extends Component {
             },
           },
           {
+            id: 10,
             title:
               "Salman Khan reveals sister Arpita Khan Sharma tested positive for Covid-19, she issues a clarification",
             description:
@@ -188,34 +202,10 @@ export default class Home extends Component {
     };
   }
 
-  getTopArticles() {
-    let topArticles = [];
-
-    for (let i = 0; i < 4; i++) {
-      let time = new Date(this.state.data.articles[i].publishedAt);
-      time = `${time.getDate()} ${
-        months[time.getMonth()]
-      }, ${time.getFullYear()}`;
-      topArticles.push(
-        <SliderHeroCard
-          title={this.state.data.articles[i].title}
-          image={this.state.data.articles[i].image}
-          time={time.toString()}
-          publisher={this.state.data.articles[i].source.name}
-          content={this.state.data.articles[i].content}
-          url={this.state.data.articles[i].source.url}
-          navigation={this.props.navigation}
-        />
-      );
-    }
-
-    return topArticles;
-  }
-
   getNewsOfTheDay() {
     let newsOfTheDay = [];
 
-    for (let i = 5; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       let time = new Date(this.state.data.articles[i].publishedAt);
       time = `${time.getDate()} ${
         months[time.getMonth()]
@@ -241,103 +231,37 @@ export default class Home extends Component {
       <View style={styles.container}>
         <StatusBar style="light" />
 
-        {/* Top Container Start */}
+        {/* Top Banner Start */}
         <View style={styles.topContainer}>
-          <View style={styles.greetingSection}>
-            <Text style={styles.greetingTitle}>Good morning James,</Text>
-            <Text style={styles.greetingSubtitle}>
-              We have the personalized feed ready for you
-            </Text>
+          <View style={styles.topNavigation}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Image
+                source={require("./assets/goback_icon.png")}
+                width="100"
+                height="100"
+                style={styles.backIcon}
+              />
+            </TouchableOpacity>
           </View>
-
-          <View style={styles.profileSection}>
-            <Image
-              style={styles.profile}
-              source={require("./assets/profile.png")}
-              width="60"
-              height="60"
-            ></Image>
+          <View style={styles.contentContainer}>
+            <View>
+              <Text style={styles.title}>#Covid19</Text>
+              <Text style={styles.subtitle}>24 articles found</Text>
+            </View>
+            <View>
+              <TouchableOpacity style={styles.followButtonBackground}>
+                <Text style={styles.followButtonText}>Follow Tag</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-        {/* Top Container End */}
+        {/* Top Banner End */}
 
-        <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
-          {/* Hero Slider Start */}
-          <View style={styles.sliderHeroContainer}>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              {this.getTopArticles()}
-              {/* <SliderHeroCard
-                image="https://scx2.b-cdn.net/gfx/news/hires/2020/1-virus.jpg"
-                title="110 million Americans fully vaccinated so far"
-                time="45 minutes"
-                publisher="USA TODAY"
-              />
-              <SliderHeroCard
-                image="https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg"
-                title="NASA’s Perseverance Captures Video, Audio of Fourth Ingenuity Flight"
-                time="45 minutes"
-                publisher="NASA"
-              />
-              <SliderHeroCard
-                image="https://cdn.vox-cdn.com/thumbor/El74gaSoPeFUuLDDpVkgU--9TH8=/0x0:2040x1360/1075x1075/filters:focal(857x517:1183x843):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69118193/acastro_210412_4523_0002.0.jpg"
-                title="Google is poisoning its reputation with AI Researchers"
-                time="1 hour"
-                publisher="The Verge"
-              /> */}
-            </ScrollView>
-          </View>
-
-          {/* Hero Slider End */}
-
-          {/* Hashtag Start */}
-          <View style={styles.hashtagContainer}>
-            <Text style={styles.hashtagTitle}>Trending Newstag</Text>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <Hashtag tag="covid19" navigation={this.props.navigation} />
-              <Hashtag tag="ipl" navigation={this.props.navigation} />
-              <Hashtag tag="iMac" navigation={this.props.navigation} />
-              <Hashtag tag="basecamp" navigation={this.props.navigation} />
-              <Hashtag tag="billgates" navigation={this.props.navigation} />
-            </ScrollView>
-          </View>
-          {/* Hashtag End */}
-
-          {/* News of the day Start */}
-          <View style={styles.newsContainer}>
-            <Text style={styles.newsTitle}>News of the day</Text>
-            <ScrollView
-              horizontal={false}
-              showsHorizontalScrollIndicator={false}
-            >
-              {this.getNewsOfTheDay()}
-              {/* <HorizontalNewsCard
-                image="https://images.pexels.com/photos/2449452/pexels-photo-2449452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                title="Tesla competitors air electric vehicle ads during Elon Musk 'Saturday Night Live'"
-                time="45 minutes ago"
-                publisher="USA Today"
-              />
-              <HorizontalNewsCard
-                image="https://techcrunch.com/wp-content/uploads/2021/04/GettyImages-1231467577.jpg?w=1390&crop=1"
-                title="Clubhouse finally launches its Android app"
-                time="1 hour ago"
-                publisher="TechCrunch"
-              />
-              <HorizontalNewsCard
-                image="https://cdn.vox-cdn.com/thumbor/I3hyXraTs98DON_Ln849eQ5jx6I=/0x0:1600x840/920x613/filters:focal(672x292:928x548):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69245028/Windows_10_Sun_Valley_refresh.0.jpg"
-                title="Microsoft is finally ditching its Windows 95-era icons"
-                time="2 hours ago"
-                publisher="The Verge"
-              /> */}
-            </ScrollView>
-          </View>
-          {/* News of the day End */}
-        </ScrollView>
+        {/* Content Start */}
+        <View style={styles.newsContainer}>
+          <ScrollView>{this.getNewsOfTheDay()}</ScrollView>
+        </View>
+        {/* Content End */}
       </View>
     );
   }
@@ -345,63 +269,71 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#252529",
-    color: "#fff",
-    // padding: 20,
+    flex: 1,
   },
   topContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 20,
+    width: "100%",
+    height: 140,
+    borderWidth: 1,
+    borderColor: "#3E3E3E",
+  },
+  topBanner: {
+    width: "100%",
+    height: "100%",
+  },
+  contentContainer: {
+    position: "absolute",
+    bottom: 0,
     padding: 20,
-  },
-  greetingSection: {
-    flex: 1,
-  },
-  profileSection: {},
-  sliderHeroContainer: {
     flexDirection: "row",
-    padding: 0,
-    marginBottom: 20,
+    justifyContent: "space-between",
+    width: "100%",
+    alignItems: "center",
   },
-  profile: {
-    width: 50,
-    height: 50,
-    borderColor: "#fff",
-    borderWidth: 1.4,
-    borderRadius: 30,
-  },
-  greetingTitle: {
+  title: {
     color: Colors.white,
-    fontSize: 26,
-    fontFamily: "MontsExtraBold",
+    fontSize: 25,
+    fontFamily: "MontsBold",
   },
-  greetingSubtitle: {
+  subtitle: {
     color: Colors.white,
-    opacity: 0.53,
+    opacity: 0.6,
+    fontFamily: "MontsMedium",
+    letterSpacing: 0.5,
+    marginTop: 4,
+  },
+  topNavigation: {
+    position: "absolute",
+    top: 30,
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  backIcon: {
+    width: 24,
+    height: 17,
+  },
+  followButtonBackground: {
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    backgroundColor: "#FD385B",
+    borderRadius: 6,
+  },
+  followButtonText: {
+    color: Colors.white,
+    fontFamily: "MontsSemibold",
     fontSize: 18,
+  },
+  content: {
+    color: "#A8A8A8",
+    fontSize: 14,
+    padding: 20,
+    lineHeight: 24,
     fontFamily: "MontsRegular",
   },
-  hashtagContainer: {
-    marginBottom: 20,
-  },
   newsContainer: {
-    marginBottom: 20,
+    paddingVertical: 20,
     paddingHorizontal: 20,
-  },
-  hashtagTitle: {
-    marginBottom: 10,
-    paddingHorizontal: 20,
-    color: Colors.white,
-    fontFamily: "MontsSemibold",
-    fontSize: 20,
-  },
-  newsTitle: {
-    marginBottom: 10,
-    color: Colors.white,
-    fontFamily: "MontsSemibold",
-    fontSize: 20,
   },
 });

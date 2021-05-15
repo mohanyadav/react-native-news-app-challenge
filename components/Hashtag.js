@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.white,
     fontSize: 14,
-    fontWeight: "500",
+    fontFamily: "MontsSemibold",
   },
 });

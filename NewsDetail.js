@@ -133,12 +133,12 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontSize: 25,
-    fontWeight: "700",
+    fontFamily: "MontsBold",
   },
   subtitle: {
     color: Colors.white,
     opacity: 0.6,
-    fontWeight: "500",
+    fontFamily: "MontsMedium",
     letterSpacing: 0.5,
     marginTop: 10,
   },
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   publisherTime: {
     color: "#858585",
     fontSize: 12,
-    fontWeight: "400",
+    fontFamily: "MontsMedium",
     letterSpacing: 0.4,
   },
   shareIcon: {
@@ -204,5 +204,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     padding: 20,
     lineHeight: 24,
+    fontFamily: "MontsRegular",
   },
 });

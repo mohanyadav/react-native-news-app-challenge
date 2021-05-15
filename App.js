@@ -5,7 +5,7 @@ import HomeScreen from "./Home";
 import NewsDetailScreen from "./NewsDetail";
 
 import * as Font from "expo-font";
-import AppLoading from 'expo-app-loading';
+import AppLoading from "expo-app-loading";
 import {
   Montserrat_100Thin,
   Montserrat_100Thin_Italic,
@@ -39,12 +39,13 @@ export default class App extends Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      'MontsLight': Montserrat_300Light,
-      'MontsRegular': Montserrat_400Regular,
-      'MontsMedium': Montserrat_500Medium,
-      'MontsSemibold': Montserrat_600SemiBold,
-      'MontsBold': Montserrat_700Bold,
-      'MontsBoldItalic': Montserrat_700Bold_Italic,
+      MontsLight: Montserrat_300Light,
+      MontsRegular: Montserrat_400Regular,
+      MontsMedium: Montserrat_500Medium,
+      MontsSemibold: Montserrat_600SemiBold,
+      MontsBold: Montserrat_700Bold,
+      MontsBoldItalic: Montserrat_700Bold_Italic,
+      MontsExtraBold: Montserrat_800ExtraBold,
     });
 
     this.setState({ fontsLoaded: true });
@@ -56,7 +57,7 @@ export default class App extends Component {
 
     // Check if font is loaded
     if (!fontsLoaded) {
-      return (<AppLoading />);
+      return <AppLoading />;
     } else {
       return (
         <NavigationContainer>

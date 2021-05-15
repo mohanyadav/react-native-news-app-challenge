@@ -376,12 +376,13 @@ const styles = StyleSheet.create({
   greetingTitle: {
     color: Colors.white,
     fontSize: 26,
-    fontWeight: "700",
+    fontFamily: "MontsExtraBold",
   },
   greetingSubtitle: {
     color: Colors.white,
     opacity: 0.53,
     fontSize: 18,
+    fontFamily: "MontsRegular",
   },
   hashtagContainer: {
     marginBottom: 20,
@@ -394,13 +395,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 20,
     color: Colors.white,
-    fontWeight: "700",
+    fontFamily: "MontsSemibold",
     fontSize: 20,
   },
   newsTitle: {
     marginBottom: 10,
     color: Colors.white,
-    fontWeight: "700",
+    fontFamily: "MontsSemibold",
     fontSize: 20,
   },
 });

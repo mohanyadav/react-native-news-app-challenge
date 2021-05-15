@@ -84,12 +84,14 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontSize: 24,
-    fontWeight: "700",
+    // fontWeight: "700",
+    fontFamily: "MontsBold",
   },
   subtitle: {
     color: Colors.white,
     opacity: 0.6,
-    fontWeight: "500",
+    // fontWeight: "500",
+    fontFamily: "MontsMedium",
     letterSpacing: 0.5,
     marginTop: 10,
   },

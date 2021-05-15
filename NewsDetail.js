@@ -8,9 +8,11 @@ import {
   ScrollView,
   ImageBackground,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { LinearGradient } from "expo-linear-gradient";
+import { Feather } from "@expo/vector-icons";
 
 export default class NewsDetail extends Component {
   constructor(props) {
@@ -103,6 +105,19 @@ export default class NewsDetail extends Component {
           <Text style={styles.content}>{content}</Text>
         </ScrollView>
         {/* Content End */}
+
+        {/* Clearbit Attribution Badge Start */}
+        <TouchableOpacity
+          style={styles.attributionBadge}
+          onPress={() => Linking.openURL("https://clearbit.com")}
+        >
+          <Text style={styles.attributionText}>
+            Logos provided by
+            <Text style={styles.attributionCompanyName}> Clearbit</Text>
+          </Text>
+          <Feather name="external-link" size={16} color="white" />
+        </TouchableOpacity>
+        {/* Clearbit Attribution Badge End */}
       </View>
     );
   }
@@ -205,5 +220,25 @@ const styles = StyleSheet.create({
     padding: 20,
     lineHeight: 24,
     fontFamily: "MontsRegular",
+  },
+  attributionBadge: {
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
+    backgroundColor: "#39393C",
+    paddingHorizontal: 14,
+    paddingVertical: 4,
+    borderRadius: 20,
+    flexDirection: "row",
+  },
+  attributionText: {
+    color: "#888",
+    fontFamily: "MontsMedium",
+    fontSize: 14,
+    marginRight: 6,
+  },
+  attributionCompanyName: {
+    color: Colors.white,
+    fontFamily: "MontsBold",
   },
 });

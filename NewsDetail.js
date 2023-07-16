@@ -34,8 +34,8 @@ export default class NewsDetail extends Component {
             source={{
               uri: image,
             }}
-            width="100"
-            height="100"
+            width={100}
+            height={100}
             style={styles.topBanner}
           >
             <LinearGradient
@@ -47,16 +47,16 @@ export default class NewsDetail extends Component {
               <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                 <Image
                   source={require("./assets/goback_icon.png")}
-                  width="100"
-                  height="100"
+                  width={100}
+                  height={100}
                   style={styles.backIcon}
                 />
               </TouchableOpacity>
               {/* <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                 <Image
                   source={require("./assets/group_icon.png")}
-                  width="100"
-                  height="100"
+                  width={100}
+                  height={100}
                   style={styles.groupIcon}
                 />
               </TouchableOpacity> */}
@@ -79,8 +79,8 @@ export default class NewsDetail extends Component {
                 source={{
                   uri: `https://logo.clearbit.com/${url}`,
                 }}
-                width="100"
-                height="100"
+                width={100}
+                height={100}
                 style={styles.publisherProfile}
               />
             </View>
@@ -92,8 +92,8 @@ export default class NewsDetail extends Component {
           <View style={styles.shareIconContainer}>
             <Image
               source={require("./assets/share_icon.png")}
-              width="100"
-              height="100"
+              width={100}
+              height={100}
               style={styles.shareIcon}
             />
           </View>

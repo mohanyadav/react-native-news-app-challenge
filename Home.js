@@ -256,8 +256,8 @@ export default class Home extends Component {
             <Image
               style={styles.profile}
               source={require("./assets/profile.png")}
-              width="60"
-              height="60"
+              width={60}
+              height={60}
             ></Image>
           </View>
         </View>

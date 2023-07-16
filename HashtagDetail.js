@@ -212,6 +212,7 @@ export default class HashtagDetail extends Component {
       }, ${time.getFullYear()}`;
       newsOfTheDay.push(
         <HorizontalNewsCard
+          key={i}
           image={this.state.data.articles[i].image}
           title={this.state.data.articles[i].title}
           time={time.toString()}
@@ -237,8 +238,8 @@ export default class HashtagDetail extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Image
                 source={require("./assets/goback_icon.png")}
-                width="100"
-                height="100"
+                width={100}
+                height={100}
                 style={styles.backIcon}
               />
             </TouchableOpacity>

@@ -30,8 +30,8 @@ export default class HorizontalNewsCard extends Component {
             source={{
               uri: image,
             }}
-            width="100"
-            height="100"
+            width={100}
+            height={100}
             style={styles.image}
           />
         </View>

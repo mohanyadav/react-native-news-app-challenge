@@ -3,7 +3,6 @@
     "name": "Apple News Challenge",
     "slug": "news-app-challenge",
     "version": "1.0.0",
-    "sdkVersion": "41.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.jpg",
     "splash": {
